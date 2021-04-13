@@ -6,6 +6,9 @@ ENV PYTHONIOENCODING utf-8
 ENV HOME /root
 ENV DEPLOY_DIR ${HOME}/mysite
 
+# リポジトリ参照先をミラーサーバに変更して高速化
+RUN sed -i.bak -r 's!deb http://archive!deb http://jp.archive!' /etc/apt/sources.list
+
 RUN apt update
 
 # Set locale
